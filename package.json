@@ -1,0 +1,45 @@
+{
+  "name": "pmocha",
+  "version": "0.0.0",
+  "description": "Interactive mocha prompt.",
+  "scripts": {
+    "coverage": "nyc mocha",
+    "lint": "eslint .",
+    "test": "mocha"
+  },
+  "bin": {
+    "pmocha": "bin/pmocha"
+  },
+  "author": "Alex J Burke <alex@alexjeffburke.com>",
+  "repository": "github:alexjeffburke/pmocha",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "peerDependencies": {
+    "mocha": ">2.2.4"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "eslint": "^5.4.0",
+    "eslint-config-pretty-standard": "^2.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "prettier": "^1.14.2",
+    "unexpected": "^10.38.0"
+  },
+  "dependencies": {
+    "@gustavnikolaj/async-main-wrap": "^3.0.0",
+    "imocha": "git+https://github.com/alexjeffburke/imocha.git#c40cc84"
+  },
+  "nyc": {
+    "cache": true,
+    "reporter": [
+      "html",
+      "lcov",
+      "text"
+    ]
+  }
+}

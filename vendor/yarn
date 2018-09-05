@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+/**
+ * This file will run the selected yarn version in .yarnrc - useful for CI and
+ * build systems
+ */
+
+const fs = require('fs');
+const path = require('path');
+const yarnPathRX = /^yarn\-path \"(.*)\"/;
+const yarnrcPath = path.join('.yarnrc');
+
+if (!fs.existsSync(yarnrcPath)) throw new Error(`Could not find .yarnrc file "${yarnrcPath}"`);
+const yarnrc = fs.readFileSync(yarnrcPath, 'utf-8');
+// Parse the .yarnrc file try finding the yarn path
+const [ [ ,yarnPath = '' ] = [] ] = yarnrc.split('\n').filter(line => yarnPathRX.test(line)).map(line => line.match(yarnPathRX));
+
+if (!yarnPath) throw new Error('Could not find "yarn-path" in .yarnrc');
+if (!fs.existsSync(yarnPath)) throw new Error(`Could not find "${yarnPath}" in .yarnrc`);
+
+require(path.join('..', yarnPath));
