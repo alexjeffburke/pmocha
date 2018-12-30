@@ -33,7 +33,7 @@
   "dependencies": {
     "@gustavnikolaj/async-main-wrap": "^3.0.0",
     "ansi-escapes": "^3.1.0",
-    "imocha": "git+https://github.com/alexjeffburke/imocha.git#c40cc84",
+    "imocha": "git+https://github.com/gustavnikolaj/imocha.git#20cb578",
     "jest-watcher": "^23.4.0"
   },
   "nyc": {
